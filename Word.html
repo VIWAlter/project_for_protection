@@ -1,0 +1,407 @@
+<html>
+<head>
+    <title>Сайт строителей</title> 
+    <link rel="stylesheet" type="text/css" href="Word.css">
+         <style>
+        #helpWindow {
+          display: none;
+          position: absolute;
+          background-color: white;
+          border: 1px solid black;
+          padding: 10px;
+          z-index: 10; /* Ensure it's on top */
+        }
+        /* Для отображения стоимости заказа */
+        .cost-display {
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+      </style>
+</head>
+<body>
+    <header>
+        <div class="zagol">
+            <div class="logo">
+                <img src="logo1.png" alt="Логотип">
+            </div>
+            <div class="name">
+                <p><b>Калькулятор фасадного декора</b></p>
+            </div>
+            <nav class="menu">
+                <div class="help">
+                    <p class="help-button"><b>Нужна помощь</b></p> 
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <div id="popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background-color:#fff; border:1px solid #ccc; padding:20px; box-shadow:0 0 10px rgba(0,0,0,0.2); z-index:1000;">
+      <h2>Вам нужна помощь?</h2>
+      <p>Свяжитесь с нами по телефону +7 (номер телефона) или по электронной почте [email protected]</p>
+      <button id="closeButton">Закрыть</button>
+    </div>
+    
+    <script>
+      const helpButton = document.querySelector('.help-button'); // Измененный селектор
+      const popup = document.getElementById('popup');
+      const closeButton = document.getElementById('closeButton');
+    
+      helpButton.addEventListener('click', () => {
+        popup.style.display = 'block';
+      });
+    
+      closeButton.addEventListener('click', () => {
+        popup.style.display = 'none';
+      });
+    </script>
+    
+    <main>
+        <div class="middle_text">
+            <p><b>Мы предлагаем услуги по точным замерам для различных нужд, включая строительство, ремонт, дизайн интерьеров и ландшафтный дизайн. Наша команда опытных специалистов гарантирует высокое качество и точность замеров, что является основой успешного выполнения любого проекта.</b></p>
+        </div>
+        <div class="choice">
+            <p>блок выбора</p>
+            <div class="chsmth">
+                <p>выберите пожалуйста ваш регион:</p>
+               
+                    <div class="dropdown">
+                        <button class="dropbtn">Выберите область</button>
+                        <div class="dropdown-content">
+                            <a href="#">Москва</a>
+                        <a href="#">Краснодар</a>
+                        <a href="#">Ростов-на-Дону</a>
+                        <a href="#">Грозный</a>
+                        <a href="#">Ставрополь</a>
+                        <a href="#">Крым</a>
+                        <a href="#">Махачкала</a>
+                        <a href="#">Астрахань</a>
+                        <a href="#">Самара</a>
+                        </div>
+                    </div>
+                
+                    <script>
+
+                        // JavaScript для открытия и закрытия выпадающего списка
+                        document.addEventListener("click", function(e) {
+                            const dropdown = document.querySelector(".dropdown-content");
+                            if (e.target.matches('.dropbtn')) {
+                                dropdown.classList.toggle("show");
+                            } else {
+                                dropdown.classList.remove("show");
+                            }
+                        });
+                    </script>
+                    </div>
+            <div class="chsmth2">
+                <p>Выберите пожалуйста тип вашего здания:</p>
+               
+                <div class="dropdown2">
+                    <button class="dropbtn2">Выберите тип</button>
+                    <div class="dropdown-content2">
+                        <a href="#">Частный дом для себя</a>
+                        <a href="#">Частный дом кля клиента</a>
+                        <a href="#">Административное здание</a>
+                        <a href="#">Многоквартирный дом</a>
+                        <a href="#">Ресторан/Гостиница/Торговый центр</a>
+                        <a href="#">Несколько домов</a>
+                    
+                    </div>
+                </div>
+
+                <script>
+
+                    // JavaScript для открытия и закрытия выпадающего списка
+                    document.addEventListener("click", function(e) {
+                        const dropdown = document.querySelector(".dropdown-content2");
+                        if (e.target.matches('.dropbtn2')) {
+                            dropdown.classList.toggle("show");
+                        } else {
+                            dropdown.classList.remove("show");
+                        }
+                    });
+                </script>
+               
+            </div>
+        </div>
+        <div class="choice2">
+            <p>блок выбора</p>
+            <div class="chsmth3">
+                <p>Выберите пожалуйста, что будет декориоваться.</p>
+                <div class="options">
+                    <div class="option" data-name="Окна">
+                        <span>Окна</span> <!--/*контейнер строки,используется для группировки элементов*/ -->
+                    </div>
+                    <div class="option" data-name="Двери">
+                        <span>Двери</span>
+                    </div>
+                    <div class="option" data-name="Карнизы">
+                        <span>Карнизы</span>
+                    </div>
+                    <div class="option" data-name="Стеновые пояса">
+                        <span>Стеновые пояса</span>
+                    </div>
+                    <div class="option" data-name="Стены рустами">
+                        <span>Стены рустами</span>
+                    </div>
+                    <div class="option" data-name="Другое">
+                        <span>Другое</span>
+                    </div>
+                    <script>
+                        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                option.classList.toggle('selected');
+            });
+        });
+                    </script>
+                    </div>
+                </div>
+            </div>
+                    </div>
+                </div>
+                <div class = "choice3">
+                    <p> блок выбора</p>
+                    <div class = "chsmth4">
+                            <p>Выберите пожалуйста варианты готовые варианты оконного декора, или можно ниже выбрать свой вариант декора</p>
+                            <div class="gallery">
+                                <div class="gallery-item" onclick="showImage(this)"><!-- тыкаем и появляется картинка на весь экран-->
+                                    <img src="wind.png" alt="Декор 1"><!--alt - если не прогрузилась картинка-->
+                                    <button>Выбрать</button>
+                                </div>
+                                <div class="gallery-item" onclick="showImage(this)">
+                                    <img src="wind2.jpeg" alt="Декор 2">
+                                    <button>Выбрать</button>
+                                </div>
+                                <div class="gallery-item" onclick="showImage(this)"><!-- тыкаем и появляется картинка на весь экран-->
+                                    <img src="o_d.jpg" alt="Декор 1"><!--alt - если не прогрузилась картинка-->
+                                    <button>Выбрать</button>
+                                </div>
+                                <div class="gallery-item" onclick="showImage(this)"><!-- тыкаем и появляется картинка на весь экран-->
+                                    <img src="okna10.jpg" alt="Декор 1"><!--alt - если не прогрузилась картинка-->
+                                    <button>Выбрать</button>
+                                </div>
+                    </div>
+                        </div>
+                    
+                        <div id="modal" class="modal" onclick="closeModal()">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="modal-img"><!-- запихиваем картинку в id-->
+                        </div>
+                    <script>
+                        function showImage(galleryItem) {
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modal-img');
+            
+            modal.style.display = "block";
+            modalImg.src = galleryItem.querySelector("img").src;
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = "none";
+        }
+                    </script>
+                    </div>
+                </div>
+                <div class="zapol">
+            <p>Введите размеры выбранных элементов:</p>
+            <div class="main_zapol">
+                <div class="window">
+                    <div class="size-entry">
+                        <span class="element-name">Окно</span>
+                        <input type="number" id="window-size" placeholder="Размер окна (см)" class="ququantity-input">
+                        <input type="number" id="window-count" placeholder="Количество окон" class="quantity-input">
+                    </div>
+                </div>
+                <div class="door">
+                    <div class="size-entry">
+                        <span class="element-name">Дверь</span>
+                        <input type="number" id="door-size" placeholder="Размер двери (см)" class="ququantity-input">
+                        <input type="number" id="door-count" placeholder="Количество дверей" class="quantity-input">
+                    </div>
+                </div>
+            </div>    </div>
+                   
+                    </div>
+                </div>
+                <div class = "choice4">
+                    <p> блок выбора</p>
+                    <div class = "okna">
+                        <p> выберите пожалуйста тип профилей для декорирования:</p>
+                    </div>
+                    <div class = "vibor">
+                        <p> окна</p>
+                       
+                            <div class="dropdown3">
+                                <button class="dropbtn3">Выберите вариант</button>
+                                <div class="dropdown-content3">
+                                    <a href="#">выберите проофиль молдинга</a>
+                                    <a href="#">выберите профиль подконника</a>
+                                    <a href="#">выберите профилб замковых камней</a>
+                                </div>
+                            </div>
+            
+                            <script>
+            
+                                // JavaScript для открытия и закрытия выпадающего списка
+                                document.addEventListener("click", function(e) {
+                                    const dropdown = document.querySelector(".dropdown-content3");
+                                    if (e.target.matches('.dropbtn3')) {
+                                        dropdown.classList.toggle("show");
+                                    } else {
+                                        dropdown.classList.remove("show");
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                 <div class="button">
+            <div class="rach">
+                <button id="calculate-button">Рассчитать</button>
+            </div>
+            <div class="otch">
+                <button id="clear-button">Очистить расчет</button>
+            </div>
+                    <div class="np">
+                        <p>нужна помощь</p>
+                      </div>
+                      <div id="helpWindow">
+                        <p>Здесь будет ваша помощь.  Это окно помощи можно использовать для предоставления информации пользователям, которые нуждаются в дополнительной помощи.  Вы можете добавить здесь любые инструкции или пояснения, которые сочтете нужными.</p>
+                        <button onclick="closeHelp()">Закрыть</button>
+                      </div>
+                    </div>
+                    
+                    <script>
+                    document.querySelector('.np p').addEventListener('click', showHelp);
+                    
+                    function showHelp() {
+                      var helpWindow = document.getElementById('helpWindow');
+                      helpWindow.style.display = 'block';
+                      // Center horizontally
+                        helpWindow.style.left = (window.innerWidth - helpWindow.offsetWidth) / 2 + 'px';
+                        // Position vertically (adjust as needed)
+                        helpWindow.style.top = '100px';
+                        }
+
+                        function closeHelp(){
+                            document.getElementById('helpWindow').style.display = 'none';
+                        }
+                    </script>
+        
+                </div>
+                <div class = "rech">
+                     <div class="cost-display">
+            <p>Стоимость вашего заказа: <span id="order-cost">0 руб</span></p>
+        </div>
+                </div>
+                <div class = "middle_text2">
+                    <p><b>Молдинги, профиль ХХХ, ширина YY, длина ZZ, количество заготовок длиной 2 метра - АА шт.</b></p>
+                </div>
+                <div class = "middle_text3">
+                    <p><b>Цена рассчитана по продукции, имеющейся в наличии на складе фабрики “Архитек”.
+                        “На данный расчет может быть предоставлена скидка.”
+                        “Цена не включает в себя стоимость доставки до вашего региона</b></p>
+                </div>
+        
+            </main>
+            <footer>
+            <div class = "podval">
+                <div class = "m_podval">
+                <h1> ООО "Архитек"
+                    производство изделий из пенополистирола</h1>
+                </div>
+                <div class = "ok_podval">
+                <p>
+                    Режим работы:
+                    понедельник - пятница
+                    с 9:00 до 18:00суббота с 9:00 до 13:00</p>
+                </div>
+                <div class = "st_podval">
+                    <p>Каталог
+        Прайс
+        Расчет проекта
+        Монтаж фасадного декора
+        На главную
+        Отзывы
+        Варианты декора
+        Оплата и доставка
+        Сотрудничество
+        Напишите нам</p>
+                </div>
+                <div class = "ad_podval">
+                    <p> Севастополь:
+                        ул. Генерала Мельника, 108
+                        +7 (978) 739-12-94
+                        Москва:
+                        1 ЮГ- МКАД 25км,внешняя сторона, ТК КОНСТРУКТОР, пав А1.14-Б1.13, Каширка М4 2 СЕВЕР- МКАД, Химки, 79км,внешняя сторона, ТК ЛЕВЫЙ БЕРЕГ, пав. ТМ-75/76
+                        +7 (985) 013-11-42
+                        Краснодар:
+                        ул. Пригородная, 299
+                        +7(989) 248-79-05
+                        Ростов-на-Дону:
+                        ул. Шолохова, 48
+                        +7 (989) 248-79-05
+                        Грозный:
+                        ул. Генерала Мельника, 108
+                        +7 (985) 013-11-42
+                        Ставрополь:
+                        ул. 3-я Промышленная,3 ТЦ « Мой дом», 2 этаж, офис 86
+                        +7 (978) 739-12-94
+                        info@arhitek24.ru skype: arhitek5</p>
+                </div>
+            </div>
+            </footer>
+
+            <script>
+                // Определяем стоимость за единицу площади для окон и дверей
+                const pricePerSquareMeterWindow = 500; // цена за м² для окон
+                const pricePerSquareMeterDoor = 1000; // цена за м² для дверей
+        
+                // Кнопки и поля ввода
+                const calculateButton = document.getElementById('calculate-button');
+                const clearButton = document.getElementById('clear-button');
+                const windowSizeInput = document.getElementById('window-size');
+                const windowCountInput = document.getElementById('window-count');
+                const doorSizeInput = document.getElementById('door-size');
+                const doorCountInput = document.getElementById('door-count');
+                const orderCostDisplay = document.getElementById('order-cost');
+        
+                // Функция для расчета стоимости
+                function calculateCost() {
+                    const windowSize = parseFloat(windowSizeInput.value);
+                    const windowCount = parseInt(windowCountInput.value);
+                    const doorSize = parseFloat(doorSizeInput.value);
+                    const doorCount = parseInt(doorCountInput.value);
+        
+                    if (isNaN(windowSize) || isNaN(windowCount) || isNaN(doorSize) || isNaN(doorCount)) {
+                        alert("Пожалуйста, заполните все поля корректно.");
+                        return;
+                    }
+        
+                    // Рассчитываем площадь
+                    const windowArea = windowSize / 100 * windowSize / 100; // площадь одного окна (в м²)
+                    const doorArea = doorSize / 100 * doorSize / 100; // площадь одной двери (в м²)
+        
+                    // Рассчитываем общую стоимость
+                    const totalCost = (windowArea * windowCount * pricePerSquareMeterWindow) + (doorArea * doorCount * pricePerSquareMeterDoor);
+        
+                    // Отображаем результат
+                    orderCostDisplay.textContent = `${totalCost.toFixed(2)} руб`;
+                }
+        
+                // Функция для очистки данных
+                function clearCalculation() {
+                    windowSizeInput.value = '';
+                    windowCountInput.value = '';
+                    doorSizeInput.value = '';
+                    doorCountInput.value = '';
+                    orderCostDisplay.textContent = '0 руб';
+                }
+        
+                // Обработчики событий
+                calculateButton.addEventListener('click', calculateCost);
+                clearButton.addEventListener('click', clearCalculation);
+            </script>
+        </body>
+        </html>
